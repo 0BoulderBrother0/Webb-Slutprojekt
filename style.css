@@ -5,7 +5,7 @@
 :root {
     --site-width: 60rem;
     --deep-color: #0A0227;
-    --surface-color: #160B36;
+    --surface-color: #160b36;
     --raised-color: #1E1250;
     --disabled-color: #5B6899;
     --analogous-color: #A6B1E1;
@@ -26,8 +26,48 @@ body {
     margin: 0;
 }
 
+nav {
+    height: 4rem;
+    width: 4rem;
+    background-color: var(--raised-color);
+    position:fixed;
+    left: 0;
+    top: 25%;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav svg path {
+    transition: fill-opacity 0.3s ease;
+}
+
+nav svg:hover path {
+    fill-opacity: 0.3;
+}
+
+.nav-content {
+    display: none;
+}
+
+.displayed-nav {
+    left: 7rem
+}
+
+.displayed-nav-content {
+    position:fixed;
+    left: 0;
+    top: 25%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+
 .header-container {
-    background-color: var(--surface-color);
+    background-color: #0f0826;
     padding: var(--main-padding);
     color: var(--highlight-color);
 }
@@ -35,6 +75,14 @@ body {
 header {
     max-width: var(--site-width);
     margin: auto;
+}
+
+.above-the-fold {
+    background-color: var(--surface-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14rem 0 14rem 0;
 }
 
 main {
