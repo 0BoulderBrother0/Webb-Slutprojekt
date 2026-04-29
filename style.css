@@ -5,35 +5,62 @@
 :root {
     --site-width: 60rem;
     --deep-color: #0A0227;
-    --surface-color: #326273;
-    --main-color: #048A81;
+    --surface-color: #160B36;
+    --raised-color: #1E1250;
+    --disabled-color: #5B6899;
+    --analogous-color: #A6B1E1;
+    --highlight-color: #DCE1F5;
+    --whisper-color: #ECEFFE;
     --harsh-color: #E63946;
-    --shallow-color: #A6B1E1;
     --main-padding: 1rem;
     --main-font: "Nunito", sans-serif;
     --main-font-weight: 600;
 }   
 
 body {
-    background-color: var(--shallow-color);
-    color: var(--deep-color);
-    max-width: var(--site-width);
-    margin: auto;
+    color-scheme: dark;
+    background-color: var(--deep-color);
+    color: var(--whisper-color);
     font-family: var(--main-font);
     font-weight: var(--main-font-weight);
+    margin: 0;
+}
+
+.header-container {
+    background-color: var(--surface-color);
+    padding: var(--main-padding);
+    color: var(--highlight-color);
+}
+
+header {
+    max-width: var(--site-width);
+    margin: auto;
 }
 
 main {
     padding: var(--main-padding);
+    max-width: var(--site-width);
+    margin: auto;
+}
+
+img {
+    display: block;
+    border: var(--surface-color) 0.5rem outset;
+    border-radius: 1rem;
 }
 
 b {
     color: var(--harsh-color);
-}   
+}
+
+.muted {
+    color: var(--disabled-color);
+}
 
 .section {
+    margin-top: 2rem;
     background-color: var(--surface-color);
-    width: var(--site-width);
+    width: 100%;
     height: 3rem;   
     border-radius: 6rem;
     display: flex;
@@ -43,5 +70,5 @@ b {
     margin: 1rem;
     flex-basis: 100%;
     border-radius: 1rem;
-    background-color: var(--main-color);
+    background-color: var(--raised-color);
 }
