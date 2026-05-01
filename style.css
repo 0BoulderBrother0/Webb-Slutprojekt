@@ -15,6 +15,9 @@
     --main-padding: 1rem;
     --main-font: "Nunito", sans-serif;
     --main-font-weight: 600;
+    --nav-border-radius: 0.7rem;
+    --nav-box-shadow: 17px 10px 20px 0px rgba(0, 0, 0, 0.1);
+    --nav-toggle-transition: left 0.3s cubic-bezier(.35,1,.35,1);
 }   
 
 body {
@@ -26,44 +29,46 @@ body {
     margin: 0;
 }
 
-nav {
+#nav-toggle {
     height: 4rem;
     width: 4rem;
     background-color: var(--raised-color);
+    border-top-right-radius: var(--nav-border-radius);
+    border-bottom-right-radius: var(--nav-border-radius);
+    box-shadow: var(--nav-box-shadow);
+
     position:fixed;
     left: 0;
     top: 25%;
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition: var(--nav-toggle-transition);
 }
 
-nav svg path {
-    transition: fill-opacity 0.3s ease;
+#nav-toggle path {
+    transition: fill-opacity 0.3s;
 }
 
-nav svg:hover path {
+#nav-toggle:hover path {
     fill-opacity: 0.3;
 }
 
-.nav-content {
-    display: none;
-}
-
-.displayed-nav {
-    left: 7rem
-}
-
-.displayed-nav-content {
+#nav-content {
     position:fixed;
     left: 0;
     top: 25%;
-    display: flex;
+
+    padding: var(--main-padding);
+    background-color: var(--raised-color);
+    border-bottom-right-radius: var(--nav-border-radius);
+    box-shadow: var(--nav-box-shadow);
+
+    display: none;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    gap: 2rem;
 }
 
 .header-container {
@@ -83,6 +88,26 @@ header {
     justify-content: center;
     align-items: center;
     padding: 14rem 0 14rem 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttons button {
+    background-color: var(--raised-color);
+    width: 4rem;
+    height: 2rem;
+    border: var(--raised-color) solid 1px;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s cubic-bezier(.35,1,.35,1);
+}
+
+.buttons button:hover {
+    background-color: hsl(252, 63%, 16%);
+    border: hsl(252, 63%, 16%);
 }
 
 main {
