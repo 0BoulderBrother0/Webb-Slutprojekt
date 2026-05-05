@@ -13,5 +13,5 @@ function toggleNav() {
     isChecked = !isChecked
     document.getElementById("nav-toggle").innerHTML = isChecked ? checked : unchecked
     navContent.style.display = isChecked ? "flex" : "none"
-    navToggle.style.left = isChecked ? "80.73px" : "0"
+    navToggle.style.left = isChecked ? "200.3px" : "0"
 }

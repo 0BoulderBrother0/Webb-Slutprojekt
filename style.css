@@ -68,7 +68,24 @@ body {
 
     display: none;
     flex-flow: column nowrap;
+    align-items: flex-start;
     gap: 2rem;
+}
+
+#nav-content a {
+    text-decoration: none;
+    color: var(--highlight-color);
+}
+
+#nav-content a:hover {
+    text-decoration: none;
+    color: var(--analogous-color);
+}
+
+.current-site {
+    font-weight: bolder;
+    border-bottom: 2px var(--analogous-color) solid;
+    border-radius: 4px;
 }
 
 .header-container {
@@ -110,7 +127,7 @@ header {
     border: hsl(252, 63%, 16%);
 }
 
-main {
+.content {
     padding: var(--main-padding);
     max-width: var(--site-width);
     margin: auto;
@@ -144,4 +161,27 @@ b {
     flex-basis: 100%;
     border-radius: 1rem;
     background-color: var(--raised-color);
+}
+
+.cards {
+    background-color: var(--surface-color);
+    padding: 6rem;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--raised-color);
+    padding: var(--main-padding);
+    border-radius: var(--nav-border-radius);
+}
+
+.card-image {
+    background-image: url(Zebra-16_9.jpg);
+    background-position: center;
+    background-size: cover;
 }
