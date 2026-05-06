@@ -2,6 +2,7 @@ let isChecked = false
 
 let navContent = document.getElementById("nav-content")
 let navToggle = document.getElementById("nav-toggle")
+let cardImageText = document.getElementById("card-image-text")
 
 let unchecked = `<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-dasharray="66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12v-7c0 -0.55 0.45 -1 1 -1h14c0.55 0 1 0.45 1 1v14c0 0.55 -0.45 1 -1 1h-14c-0.55 0 -1 -0.45 -1 -1Z"></svg>`
 
@@ -13,5 +14,6 @@ function toggleNav() {
     isChecked = !isChecked
     document.getElementById("nav-toggle").innerHTML = isChecked ? checked : unchecked
     navContent.style.display = isChecked ? "flex" : "none"
-    navToggle.style.left = isChecked ? "200.3px" : "0"
+    navToggle.style.left = isChecked ? navContent.offsetWidth + "px" : "0"
+    cardImageText.style.display = isChecked ? "none" : "block"
 }

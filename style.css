@@ -15,7 +15,8 @@
     --main-padding: 1rem;
     --main-font: "Nunito", sans-serif;
     --main-font-weight: 600;
-    --nav-border-radius: 0.7rem;
+    --main-border-radius: 0.7rem;
+    --child-border-radius: 0.3rem;
     --nav-box-shadow: 17px 10px 20px 0px rgba(0, 0, 0, 0.1);
     --nav-toggle-transition: left 0.3s cubic-bezier(.35,1,.35,1);
 }   
@@ -32,9 +33,10 @@ body {
 #nav-toggle {
     height: 4rem;
     width: 4rem;
-    background-color: var(--raised-color);
-    border-top-right-radius: var(--nav-border-radius);
-    border-bottom-right-radius: var(--nav-border-radius);
+    background-color: hsla(252, 63%, 19%, 0.9);
+    backdrop-filter: blur(6px);
+    border-top-right-radius: var(--main-border-radius);
+    border-bottom-right-radius: var(--main-border-radius);
     box-shadow: var(--nav-box-shadow);
 
     position:fixed;
@@ -62,8 +64,9 @@ body {
     top: 25%;
 
     padding: var(--main-padding);
-    background-color: var(--raised-color);
-    border-bottom-right-radius: var(--nav-border-radius);
+    background-color: hsla(252, 63%, 19%, 0.9);
+    backdrop-filter: blur(6px);
+    border-bottom-right-radius: var(--main-border-radius);
     box-shadow: var(--nav-box-shadow);
 
     display: none;
@@ -178,7 +181,7 @@ b {
 .card {
     background-color: var(--raised-color);
     padding: var(--main-padding);
-    border-radius: var(--nav-border-radius);
+    border-radius: var(--main-border-radius);
     flex-basis: 30%;
 }
 
@@ -187,7 +190,7 @@ b {
     background-position: center;
     background-size: cover;
     height: 10rem;
-    border-radius: 0.3rem;
+    border-radius: var(--child-border-radius);
     border: 3px var(--surface-color) solid;
     box-sizing: content-box;
 
@@ -206,6 +209,11 @@ b {
     transition: 0.3s;
 }
 
+.card:nth-child(even) .card-image div {
+    align-self: flex-start;
+    margin-left: auto;
+}
+
 .card-image:hover {
     background-size: 101%;
 }
@@ -218,6 +226,54 @@ b {
 
 .cards-information {
     flex: 1;
+}
+
+.horizontalls-container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.horizontall {
+    max-width: var(--site-width);
+    margin: auto;
+    padding: var(--main-padding);
+    margin-top: 2rem;
+    border-radius: var(--main-border-radius);
+    
+    display: flex;
+}
+
+.horizontall:nth-child(even) {
+    background-color: var(--raised-color);
+}
+
+.horizontall-content {
+    flex-basis: 50%;
+    padding: 0 var(--main-padding) var(--main-padding) var(--main-padding);
+}
+
+.horizontall:nth-child(even) .horizontall-content {
+    order: 1;
+}
+
+.horizontall-image-container {
+    flex: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.horizontall-image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--child-border-radius);
+    background-color: var(--analogous-color);
+    margin-right: 10%;
+
+    background-image: url(Zebra-16_9.jpg);
+    background-position: center;
+    background-size: contain;
 }
 
 footer {
