@@ -18,7 +18,7 @@
     --main-border-radius: 0.7rem;
     --child-border-radius: 0.3rem;
     --nav-box-shadow: 17px 10px 20px 0px rgba(0, 0, 0, 0.1);
-    --nav-toggle-transition: left 0.3s cubic-bezier(.35,1,.35,1);
+    --main-transition: 0.3s cubic-bezier(.35,1,.35,1);
 }   
 
 body {
@@ -47,11 +47,11 @@ body {
     justify-content: center;
     align-items: center;
 
-    transition: var(--nav-toggle-transition);
+    transition: left var(--main-transition);
 }
 
 #nav-toggle path {
-    transition: fill-opacity 0.3s;
+    transition: fill-opacity var(--main-transition);
 }
 
 #nav-toggle:hover path {
@@ -92,7 +92,7 @@ body {
 }
 
 .header-container {
-    background-color: #0f0826;
+    background-color: var(--deep-color);
     padding: var(--main-padding);
     color: var(--highlight-color);
 }
@@ -103,31 +103,40 @@ header {
 }
 
 .above-the-fold {
-    background-color: var(--surface-color);
+    background-image: url(Zebra-16_9.jpg);
+    background-size: cover;
+    background-position: center;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 14rem 0 14rem 0;
+    padding: 16rem 0 16rem 0;
+
+    font-size: large;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
     align-items: center;
 }
 
-.buttons button {
-    background-color: var(--raised-color);
-    width: 4rem;
-    height: 2rem;
-    border: var(--raised-color) solid 1px;
+.buttons a {
+    background-color: hsla(252, 63%, 19%, 0.8);
+    backdrop-filter: blur(6px);
     border-radius: 0.5rem;
-    transition: background-color 0.3s cubic-bezier(.35,1,.35,1);
+    color: var(--highlight-color);
+    text-decoration: none;
+
+    padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+
+    transition: var(--main-transition);
 }
 
-.buttons button:hover {
-    background-color: hsl(252, 63%, 16%);
-    border: hsl(252, 63%, 16%);
+.buttons a:hover {
+    background-color: hsla(229, 50%, 77%, 0.8);
+    color: var(--deep-color);
 }
 
 .content {
@@ -206,12 +215,12 @@ b {
     font-size: smaller;
     font-weight: lighter;
 
-    transition: 0.3s;
+    transition: var(--main-transition);
 }
 
-.card:nth-child(even) .card-image div {
-    align-self: flex-start;
-    margin-left: auto;
+    .card:nth-child(even) .card-image div {
+        align-self: flex-start;
+        margin-left: auto;
 }
 
 .card-image:hover {
@@ -219,9 +228,9 @@ b {
 }
 
 .card-image:hover div {
-    background-color: #ffffff1a;
+    background-color: hsla(0, 0%, 100%, 0.15);
     color: var(--deep-color);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(6px);
 }
 
 .cards-information {
@@ -231,6 +240,8 @@ b {
 .horizontalls-container {
     display: flex;
     flex-flow: column nowrap;
+    background-color: var(--surface-color);
+    padding-bottom: 2rem;
 }
 
 .horizontall {
@@ -250,14 +261,35 @@ b {
 .horizontall-content {
     flex-basis: 50%;
     padding: 0 var(--main-padding) var(--main-padding) var(--main-padding);
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.horizontall-content a {
+    display: block;
+    padding: 0.3rem var(--main-padding) 0.3rem var(--main-padding);
+    background-color: var(--analogous-color);
+    text-decoration: none;
+    color: var(--deep-color);
+    border-radius: var(--main-border-radius);
+
+    align-self: flex-start;
+
+    transition: background-color var(--main-transition);
+}
+
+.horizontall-content a:hover {
+    background-color: var(--highlight-color);
 }
 
 .horizontall:nth-child(even) .horizontall-content {
     order: 1;
+    padding-left: 3rem;
 }
 
 .horizontall-image-container {
-    flex: 1;
+    flex-basis: 50%;
 
     display: flex;
     justify-content: flex-start;
@@ -269,11 +301,18 @@ b {
     height: 100%;
     border-radius: var(--child-border-radius);
     background-color: var(--analogous-color);
-    margin-right: 10%;
+    margin: 0 0 0 10%;
 
     background-image: url(Zebra-16_9.jpg);
     background-position: center;
     background-size: contain;
+
+    box-shadow: 0px 0px 60px 0px rgba(255,255,255, 0.2);
+}
+
+.horizontall:nth-child(even) .horizontall-image {
+    margin: 0 0 0 var(--main-padding);
+    flex-basis: 90%;
 }
 
 footer {
@@ -292,5 +331,4 @@ footer {
     display: flex;
     gap: 2rem;
     margin: 2rem 2rem 2rem 0;
-    
 }
